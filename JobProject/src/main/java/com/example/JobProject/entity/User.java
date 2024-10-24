@@ -3,6 +3,7 @@ package com.example.JobProject.entity;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
+import org.springframework.boot.autoconfigure.batch.BatchProperties;
 import org.springframework.boot.autoconfigure.domain.EntityScan;
 
 import java.util.List;
@@ -21,8 +22,19 @@ public class User {
     private String password;
 
     private String status;
+
     @ManyToOne
     private Role role;
+
     @OneToOne
     private Person person;
+
+    @OneToMany
+    private List<NewsSubscription> newsSubscriptions;
+
+    @OneToMany
+    private List<FavoriteCryptocurrency> favoriteCryptocurrencies;
+
+    @OneToOne
+    private CashAccount cashAccount;
 }

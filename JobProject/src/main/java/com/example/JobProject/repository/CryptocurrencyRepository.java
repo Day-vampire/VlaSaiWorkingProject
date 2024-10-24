@@ -1,16 +1,17 @@
 package com.example.JobProject.repository;
 
-import com.example.JobProject.entity.Cryptocurrency;
+
+import com.example.JobProject.entity.CryptocurrencyOld;
 
 import java.util.List;
 import java.util.Optional;
 
 public interface CryptocurrencyRepository {
-    List<Cryptocurrency> findAll();
+    List<CryptocurrencyOld> findAll();
 
-    Cryptocurrency save(Cryptocurrency cryptocurrency);
+    CryptocurrencyOld save(CryptocurrencyOld cryptocurrency);
 
-    Optional<Cryptocurrency> findById(Integer cryptocurrencyId);
+    Optional<CryptocurrencyOld> findById(Integer cryptocurrencyId);
 
     void deleteById(Integer id);
 }

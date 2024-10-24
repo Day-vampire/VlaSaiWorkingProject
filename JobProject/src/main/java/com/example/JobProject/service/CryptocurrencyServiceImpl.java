@@ -1,6 +1,7 @@
 package com.example.JobProject.service;
 
-import com.example.JobProject.entity.Cryptocurrency;
+
+import com.example.JobProject.entity.CryptocurrencyOld;
 import com.example.JobProject.repository.CryptocurrencyRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Repository;
@@ -16,17 +17,17 @@ public class CryptocurrencyServiceImpl implements CryptocurrencyService {
     private final CryptocurrencyRepository cryptocurrencyRepository;
 
     @Override
-    public List<Cryptocurrency> getAllCryptocurrencies() {
+    public List<CryptocurrencyOld> getAllCryptocurrencies() {
         return cryptocurrencyRepository.findAll();
     }
 
     @Override
-    public Cryptocurrency createCurrency(String title, String description) {
-        return this.cryptocurrencyRepository.save(new Cryptocurrency(null, title,description));
+    public CryptocurrencyOld createCurrency(String title, String description) {
+        return this.cryptocurrencyRepository.save(new CryptocurrencyOld(null, title,description));
     }
 
     @Override
-    public Optional<Cryptocurrency> findCryptocurrencyById(int cryptocurrencyId) {
+    public Optional<CryptocurrencyOld> findCryptocurrencyById(int cryptocurrencyId) {
         return this.cryptocurrencyRepository.findById(cryptocurrencyId);
     }
 

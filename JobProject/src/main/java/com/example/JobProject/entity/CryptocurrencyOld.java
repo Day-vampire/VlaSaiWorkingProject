@@ -7,7 +7,7 @@ import lombok.NoArgsConstructor;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class Cryptocurrency {
+public class CryptocurrencyOld {
     private Integer id;
     private String title;
     private String description;

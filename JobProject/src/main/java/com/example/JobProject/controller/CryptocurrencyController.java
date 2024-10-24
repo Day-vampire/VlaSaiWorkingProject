@@ -2,7 +2,8 @@ package com.example.JobProject.controller;
 
 import com.example.JobProject.controller.payload.NewCryptoCurrencyPayload;
 import com.example.JobProject.controller.payload.UpdateCryptoCurrencyPayload;
-import com.example.JobProject.entity.Cryptocurrency;
+
+import com.example.JobProject.entity.CryptocurrencyOld;
 import com.example.JobProject.service.CryptocurrencyService;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
@@ -30,7 +31,7 @@ public class CryptocurrencyController {
     private final MessageSource messageSource; // подключение пропертиес с сообщениями для (механизм интернализации)
 
     @ModelAttribute("cryptocurrency") // хранение/возврат крипты по id. Уменьшает код (он одинаков для предостовления страницы продукта и его редоктирования )
-    public Cryptocurrency cryptocurrency(@PathVariable("cryptocurrencyId") int cryptocurrencyId) {
+    public CryptocurrencyOld cryptocurrency(@PathVariable("cryptocurrencyId") int cryptocurrencyId) {
         return this.cryptocurrencyService.findCryptocurrencyById(cryptocurrencyId).orElseThrow(()-> new NoSuchElementException("catalogue.error.cryptocurrency.not_found"));
     }
 
@@ -44,7 +45,7 @@ public class CryptocurrencyController {
         return "catalogue/cryptocurrency/edit";
     }
     @PostMapping("edit")
-     public String updateCryptocurrency(@ModelAttribute(name="cryptocurrency",binding = false) Cryptocurrency cryptocurrency, @Valid UpdateCryptoCurrencyPayload payload, BindingResult bindingResult, Model model) { // payload используется как объект, который создается для передачи данных с формы
+     public String updateCryptocurrency(@ModelAttribute(name="cryptocurrency",binding = false) CryptocurrencyOld cryptocurrency, @Valid UpdateCryptoCurrencyPayload payload, BindingResult bindingResult, Model model) { // payload используется как объект, который создается для передачи данных с формы
         if (bindingResult.hasErrors()){
             model.addAttribute("payload", payload);
             model.addAttribute("errors", bindingResult.getAllErrors().stream()
@@ -58,7 +59,7 @@ public class CryptocurrencyController {
     }}
 
     @PostMapping ("delete")
-    public String deleteCryptocurrency(@ModelAttribute("cryptocurrency") Cryptocurrency cryptocurrency) {
+    public String deleteCryptocurrency(@ModelAttribute("cryptocurrency") CryptocurrencyOld cryptocurrency) {
         this.cryptocurrencyService.deleteCryptocurrency(cryptocurrency.getId());
         return "redirect:/catalogue/cryptocurrency/cryptocurrences";
     }

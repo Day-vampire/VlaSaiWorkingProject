@@ -1,17 +1,17 @@
 package com.example.JobProject.service;
 
-import com.example.JobProject.entity.Cryptocurrency;
+import com.example.JobProject.entity.CryptocurrencyOld;
 
 import java.util.List;
 import java.util.Optional;
 
 public interface CryptocurrencyService {
 
-    List<Cryptocurrency> getAllCryptocurrencies();
+    List<CryptocurrencyOld> getAllCryptocurrencies();
 
-    Cryptocurrency createCurrency(String title, String description);
+    CryptocurrencyOld createCurrency(String title, String description);
 
-    Optional <Cryptocurrency> findCryptocurrencyById(int cryptocurrencyId);
+    Optional <CryptocurrencyOld> findCryptocurrencyById(int cryptocurrencyId);
 
     void updateCryptocurrency(Integer id, String title, String description);
 

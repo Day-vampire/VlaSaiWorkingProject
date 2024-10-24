@@ -1,6 +1,7 @@
 package com.example.JobProject.repository;
 
-import com.example.JobProject.entity.Cryptocurrency;
+import com.example.JobProject.entity.CryptocurrencyOld;
+import com.example.JobProject.entity.CryptocurrencyOld;
 import org.springframework.stereotype.Repository;
 
 import java.util.*;
@@ -8,25 +9,25 @@ import java.util.stream.IntStream;
 
 @Repository
 public class CryptocurrencyRepositoryImpl implements CryptocurrencyRepository {
-    private final List<Cryptocurrency> cryptocurrencyList = Collections.synchronizedList( new LinkedList<>());
+    private final List<CryptocurrencyOld> cryptocurrencyList = Collections.synchronizedList( new LinkedList<>());
 
     @Override
-    public List<Cryptocurrency> findAll() {
+    public List<CryptocurrencyOld> findAll() {
         return Collections.unmodifiableList(cryptocurrencyList); // не модефицируемая копия листа
     }
 
     @Override
-    public Cryptocurrency save(Cryptocurrency cryptocurrency) {
+    public CryptocurrencyOld save(CryptocurrencyOld cryptocurrency) {
         cryptocurrency.setId(this.cryptocurrencyList.stream()
-                .max(Comparator.comparingInt(Cryptocurrency::getId))
-                .map(Cryptocurrency::getId)
+                .max(Comparator.comparingInt(CryptocurrencyOld::getId))
+                .map(CryptocurrencyOld::getId)
                 .orElse(0)+1);
         cryptocurrencyList.add(cryptocurrency);
         return cryptocurrency;
     }
 
     @Override
-    public Optional<Cryptocurrency> findById(Integer cryptocurrencyId) {
+    public Optional<CryptocurrencyOld> findById(Integer cryptocurrencyId) {
         return this.cryptocurrencyList.stream()
                 .filter(cryptocurrency -> Objects.equals(cryptocurrency.getId(),cryptocurrencyId))
                 .findFirst();
