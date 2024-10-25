@@ -19,5 +19,5 @@ public class AccountTransaction {
     private String currencyId;
     private BigDecimal amount;
     private BigDecimal currencyRate;
-    private Date transactionDate;
+    private Date DateOfAccountTransaction;
 }

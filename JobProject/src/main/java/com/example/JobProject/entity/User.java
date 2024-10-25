@@ -21,7 +21,7 @@ public class User {
 
     private String password;
 
-    private String status;
+    private boolean status;
 
     @ManyToOne
     private Role role;
@@ -37,4 +37,6 @@ public class User {
 
     @OneToOne
     private CashAccount cashAccount;
+    @OneToOne
+    private CryptocurrencyWallet cryptocurrencyWallet;
 }

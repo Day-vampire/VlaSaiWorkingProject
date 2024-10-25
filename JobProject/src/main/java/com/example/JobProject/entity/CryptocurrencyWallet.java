@@ -4,26 +4,24 @@ import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
 
-import java.math.BigDecimal;
 import java.util.List;
 
 @Entity
-@Table(name="cashAccounts")
+@Table(name="cryptocurrenciesWallets")
 @Getter
 @Setter
-public class CashAccount {
+public class CryptocurrencyWallet {
     @Id
-    @GeneratedValue (strategy = GenerationType.IDENTITY)
-    private long id;
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
     private String currencyId;
-    private BigDecimal balance;
     private boolean status;
     @OneToOne
     private User user;
 
     @OneToMany
-    private List<AccountReport> accountReports;
+    private List<CryptocurrencyActive> cryptocurrencyActive;
 
     @OneToMany
-    private List<AccountTransaction> accountTransactions;
+    private List<WalletTransaction> cryptocurrencyWallet;
 }

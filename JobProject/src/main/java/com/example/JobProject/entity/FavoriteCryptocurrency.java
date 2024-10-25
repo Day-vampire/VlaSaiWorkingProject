@@ -1,9 +1,13 @@
 package com.example.JobProject.entity;
 
 import jakarta.persistence.*;
+import lombok.Getter;
+import lombok.Setter;
 
 @Entity
 @Table(name="favoriteCryptocurrencies")
+@Getter
+@Setter
 public class FavoriteCryptocurrency {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

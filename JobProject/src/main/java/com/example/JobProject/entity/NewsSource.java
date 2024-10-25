@@ -14,4 +14,5 @@ public class NewsSource {
     private Long id;
     private String name;
     private String domen;
+    private String description;
 }
