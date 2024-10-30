@@ -8,7 +8,7 @@ import java.math.BigDecimal;
 import java.util.Date;
 
 @Entity
-@Table(name="accountTransactions")
+@Table(name="account_transactions")
 @Getter
 @Setter
 public class AccountTransaction {
@@ -20,4 +20,8 @@ public class AccountTransaction {
     private BigDecimal amount;
     private BigDecimal currencyRate;
     private Date DateOfAccountTransaction;
+
+    @ManyToOne
+    @JoinColumn(name="cash_account_id")
+    private CashAccount cashAccount;
 }

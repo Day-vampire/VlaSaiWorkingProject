@@ -1,10 +1,10 @@
 package com.example.JobProject.controller;
 
 import com.example.JobProject.controller.payload.NewCryptoCurrencyPayload;
-import com.example.JobProject.entity.ApiResponse;
+
 
 import com.example.JobProject.entity.CryptocurrencyOld;
-import com.example.JobProject.entity.ExchangeData;
+
 import com.example.JobProject.service.CryptocurrencyService;
 import com.google.gson.Gson;
 import jakarta.validation.Valid;

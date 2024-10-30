@@ -24,19 +24,28 @@ public class User {
     private boolean status;
 
     @ManyToOne
+    @JoinColumn(name = "role_id")
     private Role role;
 
     @OneToOne
+    @JoinColumn(name = "person_id")
     private Person person;
 
-    @OneToMany
+    @OneToMany(mappedBy = "user")
     private List<NewsSubscription> newsSubscriptions;
 
-    @OneToMany
+    @OneToMany(mappedBy = "user")
     private List<FavoriteCryptocurrency> favoriteCryptocurrencies;
 
-    @OneToOne
+
+    @OneToOne(mappedBy = "user")
     private CashAccount cashAccount;
-    @OneToOne
+
+
+    @OneToOne(mappedBy = "user")
     private CryptocurrencyWallet cryptocurrencyWallet;
+
+    @OneToMany(mappedBy = "user")
+    private List<CryptocurrencyReport> cryptocurrencyReport;
+
 }

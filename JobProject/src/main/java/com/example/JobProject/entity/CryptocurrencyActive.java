@@ -7,7 +7,7 @@ import lombok.Setter;
 import java.math.BigDecimal;
 
 @Entity
-@Table(name="cryptocurrenciesActives")
+@Table(name="cryptocurrency_actives")
 @Getter
 @Setter
 public class CryptocurrencyActive {
@@ -16,4 +16,8 @@ public class CryptocurrencyActive {
     private long id;
     private String cryptocurrencyId;
     private BigDecimal balance;
+
+    @ManyToOne
+    @JoinColumn(name="cryptocurrency_wallet_id")
+    private CryptocurrencyWallet cryptocurrencyWallet;
 }

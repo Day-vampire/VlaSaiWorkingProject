@@ -6,7 +6,7 @@ import java.math.BigDecimal;
 import java.util.Date;
 
 @Entity
-@Table(name = "walletsTransactions")
+@Table(name = "wallet_transactions")
 public class WalletTransaction {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -18,5 +18,6 @@ public class WalletTransaction {
     private Date dateOfTransaction;
 
     @ManyToOne
+    @JoinColumn(name = "cryptocurrency_wallet_id")
     private CryptocurrencyWallet cryptocurrencyWallet;
 }

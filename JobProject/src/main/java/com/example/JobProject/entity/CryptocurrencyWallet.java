@@ -7,21 +7,25 @@ import lombok.Setter;
 import java.util.List;
 
 @Entity
-@Table(name="cryptocurrenciesWallets")
+@Table(name="cryptocurrency_wallets")
 @Getter
 @Setter
 public class CryptocurrencyWallet {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "cryptocurrency_wallet_id")
     private Long id;
     private String currencyId;
     private boolean status;
+    private boolean autoTradingStatus;
+
     @OneToOne
+    @JoinColumn(name = "user_id")
     private User user;
 
-    @OneToMany
+    @OneToMany(mappedBy = "cryptocurrencyWallet")
     private List<CryptocurrencyActive> cryptocurrencyActive;
 
-    @OneToMany
-    private List<WalletTransaction> cryptocurrencyWallet;
+    @OneToMany(mappedBy = "cryptocurrencyWallet")
+    private List<WalletTransaction> walletTransactions;
 }

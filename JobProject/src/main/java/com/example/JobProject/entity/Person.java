@@ -15,8 +15,11 @@ public class Person {
     private String name;
     private String surName;
     private String email;
-    @OneToOne
+
+    @OneToOne(mappedBy ="person")
     private User user;
+
     @OneToOne
+    @JoinColumn(name = "passport_data_id")
     private PassportData passportData;
 }

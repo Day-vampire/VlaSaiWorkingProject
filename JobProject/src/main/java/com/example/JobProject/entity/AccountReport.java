@@ -7,7 +7,7 @@ import lombok.Setter;
 import java.util.Date;
 
 @Entity
-@Table(name="accountReports")
+@Table(name="account_reports")
 @Getter
 @Setter
 public class AccountReport {
@@ -16,8 +16,12 @@ public class AccountReport {
     private long id;
     private String reportName;
     private Date reportDate;
+
     @ManyToOne
+    @JoinColumn(name="cash_account_id")
     private CashAccount cashAccount;
+
     @ManyToOne
+    @JoinColumn(name="account_report_type_id")
     private AccountReportType accountReportType;
 }

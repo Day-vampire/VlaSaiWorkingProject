@@ -8,7 +8,7 @@ import java.math.BigDecimal;
 import java.util.List;
 
 @Entity
-@Table(name="cashAccounts")
+@Table(name="cash_accounts")
 @Getter
 @Setter
 public class CashAccount {
@@ -18,12 +18,14 @@ public class CashAccount {
     private String currencyId;
     private BigDecimal balance;
     private boolean status;
+
     @OneToOne
+    @JoinColumn(name="user_id")
     private User user;
 
-    @OneToMany
+    @OneToMany(mappedBy = "cashAccount")
     private List<AccountReport> accountReports;
 
-    @OneToMany
+    @OneToMany(mappedBy = "cashAccount")
     private List<AccountTransaction> accountTransactions;
 }

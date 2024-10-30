@@ -4,8 +4,10 @@ import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
 
+import java.util.List;
+
 @Entity
-@Table(name = "accountReportTypes")
+@Table(name = "account_report_types")
 @Getter
 @Setter
 public class AccountReportType {
@@ -14,4 +16,7 @@ public class AccountReportType {
     private long id;
     private String name;
     private String description;
+
+    @OneToMany(mappedBy = "accountReportType")
+    private List<AccountReport> accountReports;
 }

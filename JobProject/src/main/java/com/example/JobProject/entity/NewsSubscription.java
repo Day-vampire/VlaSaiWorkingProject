@@ -7,7 +7,7 @@ import lombok.Setter;
 import java.util.Date;
 
 @Entity
-@Table(name="newsSubscriptions")
+@Table(name="news_subscriptions")
 @Getter
 @Setter
 public class NewsSubscription {
@@ -15,8 +15,12 @@ public class NewsSubscription {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
     private Date DateOfNewsSubscription;
+
     @ManyToOne
+    @JoinColumn(name= "user_id")
     private User user;
+
     @ManyToOne
+    @JoinColumn(name= "news_source_id")
     private NewsSource newsSource;
 }

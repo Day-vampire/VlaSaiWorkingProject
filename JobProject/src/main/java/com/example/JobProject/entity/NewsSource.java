@@ -4,8 +4,10 @@ import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
 
+import java.util.List;
+
 @Entity
-@Table(name="newsSources")
+@Table(name="news_sources")
 @Getter
 @Setter
 public class NewsSource {
@@ -15,4 +17,7 @@ public class NewsSource {
     private String name;
     private String domen;
     private String description;
+    @OneToMany(mappedBy = "newsSource")
+    private List<NewsSubscription> newsSubscriptions;
+
 }

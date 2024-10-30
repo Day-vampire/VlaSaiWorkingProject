@@ -5,13 +5,14 @@ import jakarta.persistence.*;
 import java.util.List;
 
 @Entity
-@Table (name="cryptocurrenciesReportTypes")
+@Table (name="cryptocurrency_report_types")
 public class CryptocurrencyReportType {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String name;
     private String description;
-    @OneToMany
+
+    @OneToMany(mappedBy = "cryptocurrencyReportType")
     private List<CryptocurrencyReport> cryptocurrencyReports;
 }
