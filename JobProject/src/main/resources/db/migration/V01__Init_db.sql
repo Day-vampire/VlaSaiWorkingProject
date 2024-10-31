@@ -1,45 +1,45 @@
 create table account_report_types
 (
     id          BIGSERIAL PRIMARY KEY,
-    description TEXT NOT NULL,
-    name        TEXT NOT NULL
+    name        TEXT NOT NULL UNIQUE,
+    description TEXT NOT NULL
 );
 
 create table account_reports
 (
     id                     BIGSERIAL PRIMARY KEY,
-    account_report_type_id BIGINT,
-    cash_account_id        BIGINT,
-    report_date            TIMESTAMP WITH TIME ZONE,
-    report_name            TEXT NOT NULL
+    account_report_type_id BIGINT                   NOT NULL,
+    cash_account_id        BIGINT                   NOT NULL,
+    report_date            TIMESTAMP WITH TIME ZONE NOT NULL,
+    report_name            TEXT                     NOT NULL UNIQUE
 );
 
 create table account_transactions
 (
     id                          BIGSERIAL PRIMARY KEY,
-    amount_of_cryptocurrency    DECIMAL,
-    currency_rate               DECIMAL,
-    cash_account_id             BIGINT,
-    date_of_account_transaction TIMESTAMP WITH TIME ZONE,
-    currency_id                 TEXT NOT NULL,
-    type                        TEXT NOT NULL
+    amount_of_cryptocurrency    DECIMAL                  NOT NULL CHECK (amount_of_cryptocurrency >= 0),
+    currency_rate               DECIMAL                  NOT NULL CHECK (currency_rate >= 0),
+    cash_account_id             BIGINT                   NOT NULL,
+    date_of_account_transaction TIMESTAMP WITH TIME ZONE NOT NULL,
+    currency_id                 TEXT                     NOT NULL,
+    type                        TEXT                     NOT NULL
 );
 
 create table cash_accounts
 (
     id          BIGSERIAL PRIMARY KEY,
-    balance     DECIMAL,
-    status      boolean not null,
-    user_id     BIGINT unique,
+    balance     DECIMAL NOT NULL CHECK (balance >= 0),
+    status      BOOLEAN NOT NULL DEFAULT FALSE,
+    user_id     BIGINT UNIQUE,
     currency_id TEXT    NOT NULL
 );
 
 create table cryptocurrency_actives
 (
     id                       BIGSERIAL PRIMARY KEY,
-    balance                  DECIMAL,
-    cryptocurrency_wallet_id BIGINT,
-    cryptocurrency_id        TEXT NOT NULL
+    balance                  DECIMAL NOT NULL CHECK (balance >= 0),
+    cryptocurrency_wallet_id BIGINT  NOT NULL,
+    cryptocurrency_id        TEXT    NOT NULL
 );
 
 create table cryptocurrency_report_types
@@ -52,59 +52,59 @@ create table cryptocurrency_report_types
 create table cryptocurrency_reports
 (
     id                            BIGSERIAL PRIMARY KEY,
-    cryptocurrency_report_type_id BIGINT,
-    report_date                   TIMESTAMP WITH TIME ZONE,
-    user_id                       BIGINT,
-    cryptocurrency_id             TEXT NOT NULL,
-    report_name                   TEXT NOT NULL
+    cryptocurrency_report_type_id BIGINT                   NOT NULL,
+    report_date                   TIMESTAMP WITH TIME ZONE NOT NULL,
+    user_id                       BIGINT                   NOT NULL,
+    cryptocurrency_id             TEXT                     NOT NULL,
+    report_name                   TEXT                     NOT NULL UNIQUE
 );
 
 create table cryptocurrency_wallets
 (
     id                  BIGSERIAL PRIMARY KEY,
-    auto_trading_status boolean not null,
-    status              boolean not null,
-    user_id             BIGINT unique,
+    auto_trading_status BOOLEAN NOT NULL DEFAULT FALSE,
+    status              BOOLEAN NOT NULL DEFAULT FALSE,
+    user_id             BIGINT UNIQUE,
     currency_id         TEXT    NOT NULL
 );
 
 create table favorite_cryptocurrencies
 (
     id                BIGSERIAL PRIMARY KEY,
-    user_id           BIGINT,
-    cryptocurrency_id TEXT NOT NULL
+    user_id           BIGINT NOT NULL,
+    cryptocurrency_id TEXT   NOT NULL
 );
 
 create table news_sources
 (
     id          BIGSERIAL PRIMARY KEY,
     description TEXT NOT NULL,
-    domen       TEXT NOT NULL,
-    name        TEXT NOT NULL
+    domen       TEXT NOT NULL UNIQUE,
+    name        TEXT NOT NULL UNIQUE
 );
 
 create table news_subscriptions
 (
     id                        BIGSERIAL PRIMARY KEY,
     date_of_news_subscription DATE,
-    news_source_id            BIGINT,
-    user_id                   BIGINT
+    news_source_id            BIGINT NOT NULL,
+    user_id                   BIGINT NOT NULL
 );
 
 create table passport_data
 (
     id                    BIGSERIAL PRIMARY KEY,
-    date_of_issue         DATE,
-    validity_period       DATE,
+    date_of_issue         DATE NOT NULL,
+    validity_period       DATE NOT NULL,
     country               TEXT NOT NULL,
-    identification_number TEXT NOT NULL
+    identification_number TEXT NOT NULL UNIQUE
 );
 
 create table persons
 (
     id               BIGSERIAL PRIMARY KEY,
-    passport_data_id BIGINT unique,
-    email            TEXT NOT NULL,
+    passport_data_id BIGINT UNIQUE,
+    email            TEXT NOT NULL UNIQUE,
     name             TEXT NOT NULL,
     sur_name         TEXT NOT NULL
 );
@@ -112,14 +112,14 @@ create table persons
 create table roles
 (
     id   BIGSERIAL PRIMARY KEY,
-    name TEXT NOT NULL
+    name TEXT NOT NULL UNIQUE
 );
 
 create table users
 (
     id        BIGSERIAL PRIMARY KEY,
-    status    boolean not null,
-    person_id BIGINT unique,
+    status    BOOLEAN NOT NULL DEFAULT FALSE,
+    person_id BIGINT UNIQUE,
     role_id   BIGINT,
     login     TEXT    NOT NULL,
     password  TEXT    NOT NULL
@@ -128,12 +128,12 @@ create table users
 create table wallet_transactions
 (
     id                       BIGSERIAL PRIMARY KEY,
-    amount_of_cryptocurrency DECIMAL,
-    cryptocurrency_rate      DECIMAL,
+    amount_of_cryptocurrency DECIMAL NOT NULL CHECK (amount_of_cryptocurrency >= 0),
+    cryptocurrency_rate      DECIMAL NOT NULL CHECK (cryptocurrency_rate >= 0),
     cryptocurrency_wallet_id BIGINT,
     date_of_transaction      TIMESTAMP WITH TIME ZONE,
-    cryptocurrency_id        TEXT NOT NULL,
-    type                     TEXT NOT NULL
+    cryptocurrency_id        TEXT    NOT NULL,
+    type                     TEXT    NOT NULL
 );
 
 alter table if exists account_reports
