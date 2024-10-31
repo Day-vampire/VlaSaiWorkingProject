@@ -13,7 +13,6 @@ import java.util.List;
 public class CryptocurrencyWallet {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "cryptocurrency_wallet_id")
     private Long id;
     private String currencyId;
     private boolean status;

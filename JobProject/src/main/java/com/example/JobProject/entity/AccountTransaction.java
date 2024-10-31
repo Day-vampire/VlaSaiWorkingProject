@@ -17,7 +17,7 @@ public class AccountTransaction {
     private Long id;
     private String type;
     private String currencyId;
-    private BigDecimal amount;
+    private BigDecimal amountOfCryptocurrency;
     private BigDecimal currencyRate;
     private Date DateOfAccountTransaction;
 

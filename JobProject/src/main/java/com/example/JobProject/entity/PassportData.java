@@ -13,6 +13,7 @@ public class PassportData {
     private Date dateOfIssue; // дата выдачи паспорта
     private Date validityPeriod; // дата конца срока действия паспорта
     private String identificationNumber;
+    private String country;
 
     @OneToOne(mappedBy ="passportData")
     private Person person;
