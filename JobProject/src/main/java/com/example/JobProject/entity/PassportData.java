@@ -2,6 +2,7 @@ package com.example.JobProject.entity;
 
 import jakarta.persistence.*;
 
+import java.time.LocalDate;
 import java.util.Date;
 
 @Entity
@@ -10,8 +11,8 @@ public class PassportData {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    private Date dateOfIssue; // дата выдачи паспорта
-    private Date validityPeriod; // дата конца срока действия паспорта
+    private LocalDate dateOfIssue; // дата выдачи паспорта
+    private LocalDate  validityPeriod; // дата конца срока действия паспорта
     private String identificationNumber;
     private String country;
 

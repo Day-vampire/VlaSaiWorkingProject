@@ -4,6 +4,7 @@ import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
 
+import java.time.LocalDate;
 import java.util.Date;
 
 @Entity
@@ -14,7 +15,7 @@ public class NewsSubscription {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
-    private Date DateOfNewsSubscription;
+    private LocalDate DateOfNewsSubscription;
 
     @ManyToOne
     @JoinColumn(name= "user_id")
