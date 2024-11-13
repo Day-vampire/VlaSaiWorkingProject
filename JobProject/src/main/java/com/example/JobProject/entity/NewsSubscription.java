@@ -15,7 +15,7 @@ public class NewsSubscription {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
-    private LocalDate DateOfNewsSubscription;
+    private LocalDate dateOfNewsSubscription;
 
     @ManyToOne
     @JoinColumn(name= "user_id")

@@ -19,7 +19,7 @@ public class AccountTransaction {
     private String currencyId;
     private BigDecimal amountOfCryptocurrency;
     private BigDecimal currencyRate;
-    private Date DateOfAccountTransaction;
+    private Date dateOfAccountTransaction;
 
     @ManyToOne
     @JoinColumn(name="cash_account_id")
