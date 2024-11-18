@@ -8,5 +8,4 @@ public class CashAccountDto {
     private BigDecimal balance;
     private boolean status;
     private Long userId;
-
 }

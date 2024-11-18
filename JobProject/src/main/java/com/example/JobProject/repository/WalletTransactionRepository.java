@@ -12,7 +12,7 @@ public interface WalletTransactionRepository extends JpaRepository<WalletTransac
     @Override
     List<WalletTransaction> findAll();
     Optional<WalletTransaction> findById(Long id);
-    List<WalletTransaction> findByTransactionDateAndWalletId(Date transactionDate, Long cryptocurrencyWalletId );
-    List<WalletTransaction> findByWalletId(Long walletId);
+    List<WalletTransaction> findByDateOfTransactionAndCryptocurrencyWalletId(Date dateOfTransaction, Long cryptocurrencyWalletId );
+    List<WalletTransaction> findByCryptocurrencyWalletId(Long cryptocurrencyWalletId);
     List<WalletTransaction> findByType(String typeOfTransaction);
 }

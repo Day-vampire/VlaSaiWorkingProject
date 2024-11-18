@@ -9,6 +9,6 @@ import java.util.List;
 public interface AccountReportRepository extends JpaRepository<AccountReport, Long> {
 
     List<AccountReport> findByCashAccountId(Long cashAccountId);
-    List<AccountReport> findByReportTypeId(Long reportTypeId);
+    List<AccountReport> findByAccountReportTypeId(Long accountReportTypeId);
     List<AccountReport> findByCashAccountIdAndReportDate(Long cashAccountId, Date reportDate);
 }
