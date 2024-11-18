@@ -10,5 +10,5 @@ public class WalletTransactionDto {
     private BigDecimal amountOfCryptocurrency;
     private BigDecimal cryptocurrencyRate;
     private Date dateOfTransaction;
-    private Long walletId;
+    private Long cryptocurrencyWalletId;
 }

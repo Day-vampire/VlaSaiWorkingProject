@@ -9,5 +9,5 @@ public class CryptocurrencyReportDto {
     private Date reportDate;
     private String cryptocurrencyId;
     private Long cryptocurrencyReportTypeId;
-    private Long userDd;
+    private Long userId;
 }
