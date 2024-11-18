@@ -1,10 +1,10 @@
-package com.example.JobProject.service;
+package com.example.JobProject.service.implement;
 
 
 import com.example.JobProject.entity.CryptocurrencyOld;
 import com.example.JobProject.repository.CryptocurrencyRepository;
+import com.example.JobProject.service.CryptocurrencyService;
 import lombok.RequiredArgsConstructor;
-import org.springframework.stereotype.Repository;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
