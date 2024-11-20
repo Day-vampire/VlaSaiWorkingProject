@@ -1,6 +1,7 @@
 package com.example.JobProject.entity;
 
 import jakarta.persistence.*;
+import lombok.Builder;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -8,6 +9,7 @@ import lombok.Setter;
 @Table(name="persons")
 @Setter
 @Getter
+@Builder
 public class Person {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
