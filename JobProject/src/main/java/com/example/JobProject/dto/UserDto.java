@@ -4,16 +4,24 @@ import com.example.JobProject.entity.Person;
 import com.example.JobProject.entity.Role;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.Data;
+import lombok.Getter;
+import lombok.Setter;
 import org.hibernate.validator.constraints.NotBlank;
 
 @Data
+@Getter
+@Setter
 public class UserDto {
 
     private String Login;
-    @JsonProperty(access = JsonProperty.Access.READ_ONLY)
+
     private Long id;
-    @JsonProperty(access = JsonProperty.Access.READ_ONLY)
+
+    private String password;
+
+    private boolean status;
+
     private Long roleId;
-    @JsonProperty(access = JsonProperty.Access.READ_ONLY)
+
     private Long personId;
 }

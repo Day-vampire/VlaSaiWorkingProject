@@ -1,11 +1,7 @@
 package com.example.JobProject.entity;
 
 import jakarta.persistence.*;
-import lombok.Getter;
-import lombok.Setter;
-import lombok.ToString;
-import org.springframework.boot.autoconfigure.batch.BatchProperties;
-import org.springframework.boot.autoconfigure.domain.EntityScan;
+import lombok.*;
 
 import java.util.List;
 
@@ -13,6 +9,9 @@ import java.util.List;
 @Table (name="users")
 @Getter
 @Setter
+@NoArgsConstructor
+@AllArgsConstructor
+@Builder
 public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
