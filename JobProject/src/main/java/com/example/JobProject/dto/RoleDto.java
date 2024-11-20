@@ -1,10 +1,19 @@
 package com.example.JobProject.dto;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
+import lombok.Data;
+import lombok.Getter;
+import lombok.Setter;
+import org.springframework.data.redis.core.RedisHash;
+import org.springframework.data.redis.repository.configuration.EnableRedisRepositories;
 
+@Data
+//@RedisHash ("roles")
+@Getter
+@Setter
 public class RoleDto {
-    @JsonProperty(access = JsonProperty.Access.READ_ONLY)
+
     private Long id;
-    @JsonProperty(access = JsonProperty.Access.READ_ONLY)
+
     private String name;
 }

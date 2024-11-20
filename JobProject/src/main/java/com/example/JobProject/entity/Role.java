@@ -1,8 +1,7 @@
 package com.example.JobProject.entity;
 
 import jakarta.persistence.*;
-import lombok.Getter;
-import lombok.Setter;
+import lombok.*;
 
 import java.util.List;
 
@@ -10,6 +9,9 @@ import java.util.List;
 @Table (name="roles")
 @Getter
 @Setter
+@AllArgsConstructor
+@NoArgsConstructor
+@Builder
 public class Role {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

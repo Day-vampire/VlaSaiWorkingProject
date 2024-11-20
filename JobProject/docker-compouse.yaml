@@ -9,3 +9,7 @@ services:
       POSTGRES_PASSWORD: "Griffith"
     ports:
       - "5433:5431"
+  redis:
+    image: "redis:latest"
+    ports:
+      - "6379:6379"

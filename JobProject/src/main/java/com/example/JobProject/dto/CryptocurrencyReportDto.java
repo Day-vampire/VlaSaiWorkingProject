@@ -1,8 +1,11 @@
 package com.example.JobProject.dto;
 
 
+import lombok.Data;
+
 import java.util.Date;
 
+@Data
 public class CryptocurrencyReportDto {
     private Long id;
     private String reportName;

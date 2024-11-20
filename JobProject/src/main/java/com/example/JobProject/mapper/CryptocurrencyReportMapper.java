@@ -9,10 +9,10 @@ import org.mapstruct.Mappings;
 @Mapper
 public interface CryptocurrencyReportMapper {
 
-    @Mappings({
-            @Mapping(source = "cryptocurrencyReportType.id", target = "cryptocurrencyReportTypeId"),
-            @Mapping(source = "user.id", target = "userId"),
-    })
+//    @Mappings({
+//            @Mapping(source = "cryptocurrencyReportType.id", target = "cryptocurrencyReportTypeId"),
+//            @Mapping(source = "user.id", target = "userId"),
+//    })
     CryptocurrencyReportDto toCryptocurrencyReportDto(CryptocurrencyReport cryptocurrencyReport);
     CryptocurrencyReport toCryptocurrencyReport(CryptocurrencyReportDto cryptocurrencyReportDto);
 }

@@ -2,7 +2,9 @@ package com.example.JobProject.dto;
 
 import com.example.JobProject.entity.PassportData;
 import jakarta.validation.constraints.Email;
+import lombok.Data;
 
+@Data
 public class PersonDto {
     private Long id;
     private String name;

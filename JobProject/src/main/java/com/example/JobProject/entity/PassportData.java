@@ -1,12 +1,18 @@
 package com.example.JobProject.entity;
 
 import jakarta.persistence.*;
+import lombok.*;
 
 import java.time.LocalDate;
 import java.util.Date;
 
 @Entity
 @Table(name="passport_data")
+@Getter
+@Setter
+@NoArgsConstructor
+@AllArgsConstructor
+@Builder
 public class PassportData {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

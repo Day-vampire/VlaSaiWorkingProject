@@ -3,6 +3,7 @@ package com.example.JobProject.entity;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
+import lombok.ToString;
 import org.springframework.boot.autoconfigure.batch.BatchProperties;
 import org.springframework.boot.autoconfigure.domain.EntityScan;
 
@@ -19,6 +20,7 @@ public class User {
 
     private String login;
 
+    @ToString.Exclude // Исключаем поле password из метода toString
     private String password;
 
     private boolean status;

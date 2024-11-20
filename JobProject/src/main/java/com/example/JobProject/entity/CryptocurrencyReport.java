@@ -1,11 +1,17 @@
 package com.example.JobProject.entity;
 
 import jakarta.persistence.*;
+import lombok.EqualsAndHashCode;
+import lombok.Getter;
+import lombok.Setter;
 
 import java.util.Date;
 
 @Entity
 @Table(name="cryptocurrency_reports")
+@Getter
+@Setter
+@EqualsAndHashCode
 public class CryptocurrencyReport {
     @Id
     @GeneratedValue(strategy= GenerationType.IDENTITY)

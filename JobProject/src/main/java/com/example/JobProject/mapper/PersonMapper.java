@@ -7,7 +7,7 @@ import org.mapstruct.Mapping;
 
 @Mapper
 public interface PersonMapper {
-    @Mapping(source = "PassportData.id", target = "passportDataId")
+//    @Mapping(source = "passportData.id", target = "passportDataId")
     PersonDto toPersonDto(Person person);
     Person toPerson(PersonDto personDto);
 }
