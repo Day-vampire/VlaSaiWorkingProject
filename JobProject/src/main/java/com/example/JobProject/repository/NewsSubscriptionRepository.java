@@ -1,5 +1,6 @@
 package com.example.JobProject.repository;
 
+import com.example.JobProject.dto.NewsSubscriptionDto;
 import com.example.JobProject.entity.NewsSubscription;
 import org.springframework.data.jpa.repository.JpaRepository;
 
