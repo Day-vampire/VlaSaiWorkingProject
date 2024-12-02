@@ -3,12 +3,14 @@ package com.example.JobProject.mapper;
 import com.example.JobProject.dto.PassportDataDto;
 import com.example.JobProject.entity.PassportData;
 import javax.annotation.processing.Generated;
+import org.springframework.stereotype.Component;
 
 @Generated(
     value = "org.mapstruct.ap.MappingProcessor",
-    date = "2024-11-19T19:12:00+0300",
+    date = "2024-12-03T01:36:12+0300",
     comments = "version: 1.5.5.Final, compiler: javac, environment: Java 22.0.1 (Oracle Corporation)"
 )
+@Component
 public class PassportDataMapperImpl implements PassportDataMapper {
 
     @Override
@@ -19,6 +21,12 @@ public class PassportDataMapperImpl implements PassportDataMapper {
 
         PassportDataDto passportDataDto = new PassportDataDto();
 
+        passportDataDto.setId( passportData.getId() );
+        passportDataDto.setDateOfIssue( passportData.getDateOfIssue() );
+        passportDataDto.setValidityPeriod( passportData.getValidityPeriod() );
+        passportDataDto.setIdentificationNumber( passportData.getIdentificationNumber() );
+        passportDataDto.setCountry( passportData.getCountry() );
+
         return passportDataDto;
     }
 
@@ -28,8 +36,14 @@ public class PassportDataMapperImpl implements PassportDataMapper {
             return null;
         }
 
-        PassportData passportData = new PassportData();
+        PassportData.PassportDataBuilder passportData = PassportData.builder();
 
-        return passportData;
+        passportData.id( passportDataDto.getId() );
+        passportData.dateOfIssue( passportDataDto.getDateOfIssue() );
+        passportData.validityPeriod( passportDataDto.getValidityPeriod() );
+        passportData.identificationNumber( passportDataDto.getIdentificationNumber() );
+        passportData.country( passportDataDto.getCountry() );
+
+        return passportData.build();
     }
 }

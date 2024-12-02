@@ -4,12 +4,14 @@ import com.example.JobProject.dto.UserDto;
 import com.example.JobProject.entity.Role;
 import com.example.JobProject.entity.User;
 import javax.annotation.processing.Generated;
+import org.springframework.stereotype.Component;
 
 @Generated(
     value = "org.mapstruct.ap.MappingProcessor",
-    date = "2024-11-19T19:12:00+0300",
+    date = "2024-12-03T01:36:12+0300",
     comments = "version: 1.5.5.Final, compiler: javac, environment: Java 22.0.1 (Oracle Corporation)"
 )
+@Component
 public class UserMapperImpl implements UserMapper {
 
     @Override
@@ -23,6 +25,8 @@ public class UserMapperImpl implements UserMapper {
         userDto.setRoleId( userRoleId( user ) );
         userDto.setLogin( user.getLogin() );
         userDto.setId( user.getId() );
+        userDto.setPassword( user.getPassword() );
+        userDto.setStatus( user.isStatus() );
 
         return userDto;
     }
@@ -33,12 +37,14 @@ public class UserMapperImpl implements UserMapper {
             return null;
         }
 
-        User user = new User();
+        User.UserBuilder user = User.builder();
 
-        user.setId( userDto.getId() );
-        user.setLogin( userDto.getLogin() );
+        user.id( userDto.getId() );
+        user.login( userDto.getLogin() );
+        user.password( userDto.getPassword() );
+        user.status( userDto.isStatus() );
 
-        return user;
+        return user.build();
     }
 
     private Long userRoleId(User user) {

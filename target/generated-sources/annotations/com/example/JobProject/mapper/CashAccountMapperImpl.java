@@ -4,12 +4,14 @@ import com.example.JobProject.dto.CashAccountDto;
 import com.example.JobProject.entity.CashAccount;
 import com.example.JobProject.entity.User;
 import javax.annotation.processing.Generated;
+import org.springframework.stereotype.Component;
 
 @Generated(
     value = "org.mapstruct.ap.MappingProcessor",
-    date = "2024-11-19T19:11:59+0300",
+    date = "2024-12-03T01:34:14+0300",
     comments = "version: 1.5.5.Final, compiler: javac, environment: Java 22.0.1 (Oracle Corporation)"
 )
+@Component
 public class CashAccountMapperImpl implements CashAccountMapper {
 
     @Override

@@ -8,5 +8,5 @@ public interface PersonService {
     PersonDto findByEmail(String email);
     PersonDto findById(long id);
 //    Person save(PersonDto personDto);
-    void delete(Long personDto);
+    void deleteById(Long personDto);
 }

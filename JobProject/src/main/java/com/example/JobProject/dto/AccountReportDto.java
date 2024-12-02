@@ -16,6 +16,6 @@ public class AccountReportDto {
     private long id;
     private String reportName;
     private Date reportDate;
-    private CashAccount cashAccountId;
-    private AccountReportType accountReportTypeId;
+    private Long cashAccountId;
+    private Long accountReportTypeId;
 }

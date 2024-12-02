@@ -5,7 +5,7 @@ import com.example.JobProject.entity.PassportData;
 import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
 
-@Mapper
+@Mapper(componentModel = "spring")
 public interface PassportDataMapper {
 
     PassportDataDto toPassportDataDto(PassportData passportData);

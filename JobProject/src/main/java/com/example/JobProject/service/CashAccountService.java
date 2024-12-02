@@ -10,4 +10,5 @@ public interface CashAccountService {
     CashAccountDto findByUserId(Long userId);
     List<CashAccountDto> findByStatus(Boolean status);
     List<CashAccountDto> findAll();
+
 }

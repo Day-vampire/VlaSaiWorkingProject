@@ -6,7 +6,7 @@ import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
 import org.mapstruct.Mappings;
 
-@Mapper
+@Mapper(componentModel = "spring")
 public interface FavoriteCryptocurrencyMapper {
     @Mapping(source = "user.id", target = "userId")
     FavoriteCryptocurrencyDto toFavoriteCryptocurrencyDto(FavoriteCryptocurrency favoriteCryptocurrency);

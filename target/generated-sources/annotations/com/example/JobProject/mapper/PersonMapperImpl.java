@@ -3,12 +3,14 @@ package com.example.JobProject.mapper;
 import com.example.JobProject.dto.PersonDto;
 import com.example.JobProject.entity.Person;
 import javax.annotation.processing.Generated;
+import org.springframework.stereotype.Component;
 
 @Generated(
     value = "org.mapstruct.ap.MappingProcessor",
-    date = "2024-11-19T19:11:59+0300",
+    date = "2024-12-03T01:36:12+0300",
     comments = "version: 1.5.5.Final, compiler: javac, environment: Java 22.0.1 (Oracle Corporation)"
 )
+@Component
 public class PersonMapperImpl implements PersonMapper {
 
     @Override
@@ -33,13 +35,13 @@ public class PersonMapperImpl implements PersonMapper {
             return null;
         }
 
-        Person person = new Person();
+        Person.PersonBuilder person = Person.builder();
 
-        person.setId( personDto.getId() );
-        person.setName( personDto.getName() );
-        person.setSurName( personDto.getSurName() );
-        person.setEmail( personDto.getEmail() );
+        person.id( personDto.getId() );
+        person.name( personDto.getName() );
+        person.surName( personDto.getSurName() );
+        person.email( personDto.getEmail() );
 
-        return person;
+        return person.build();
     }
 }

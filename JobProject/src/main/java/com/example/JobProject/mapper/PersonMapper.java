@@ -5,7 +5,7 @@ import com.example.JobProject.entity.Person;
 import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
 
-@Mapper
+@Mapper(componentModel = "spring")
 public interface PersonMapper {
 //    @Mapping(source = "passportData.id", target = "passportDataId")
     PersonDto toPersonDto(Person person);

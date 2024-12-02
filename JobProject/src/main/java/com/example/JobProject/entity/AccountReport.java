@@ -1,8 +1,7 @@
 package com.example.JobProject.entity;
 
 import jakarta.persistence.*;
-import lombok.Getter;
-import lombok.Setter;
+import lombok.*;
 
 import java.util.Date;
 
@@ -10,6 +9,9 @@ import java.util.Date;
 @Table(name="account_reports")
 @Getter
 @Setter
+@NoArgsConstructor
+@AllArgsConstructor
+@Builder
 public class AccountReport {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

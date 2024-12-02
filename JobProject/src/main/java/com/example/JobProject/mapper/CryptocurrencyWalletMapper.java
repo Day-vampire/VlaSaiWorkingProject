@@ -5,7 +5,7 @@ import com.example.JobProject.entity.CryptocurrencyWallet;
 import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
 
-@Mapper
+@Mapper(componentModel = "spring")
 public interface CryptocurrencyWalletMapper {
     @Mapping(source = "user.id", target="userId")
     CryptocurrencyWalletDto toCryptocurrencyWalletDto(CryptocurrencyWallet cryptocurrencyWallet);

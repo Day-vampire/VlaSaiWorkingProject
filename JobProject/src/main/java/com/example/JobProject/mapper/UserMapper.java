@@ -5,7 +5,7 @@ import com.example.JobProject.entity.User;
 import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
 
-@Mapper
+@Mapper(componentModel = "spring")
 public interface UserMapper {
     @Mapping(source = "role.id", target = "roleId")
     UserDto toUserDto(User user);

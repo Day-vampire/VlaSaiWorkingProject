@@ -5,12 +5,14 @@ import com.example.JobProject.entity.NewsSource;
 import com.example.JobProject.entity.NewsSubscription;
 import com.example.JobProject.entity.User;
 import javax.annotation.processing.Generated;
+import org.springframework.stereotype.Component;
 
 @Generated(
     value = "org.mapstruct.ap.MappingProcessor",
-    date = "2024-11-19T19:12:00+0300",
+    date = "2024-12-03T01:22:21+0300",
     comments = "version: 1.5.5.Final, compiler: javac, environment: Java 22.0.1 (Oracle Corporation)"
 )
+@Component
 public class NewsSubscriptionMapperImpl implements NewsSubscriptionMapper {
 
     @Override
@@ -35,12 +37,12 @@ public class NewsSubscriptionMapperImpl implements NewsSubscriptionMapper {
             return null;
         }
 
-        NewsSubscription newsSubscription = new NewsSubscription();
+        NewsSubscription.NewsSubscriptionBuilder newsSubscription = NewsSubscription.builder();
 
-        newsSubscription.setId( newsSubscriptionDto.getId() );
-        newsSubscription.setDateOfNewsSubscription( newsSubscriptionDto.getDateOfNewsSubscription() );
+        newsSubscription.id( newsSubscriptionDto.getId() );
+        newsSubscription.dateOfNewsSubscription( newsSubscriptionDto.getDateOfNewsSubscription() );
 
-        return newsSubscription;
+        return newsSubscription.build();
     }
 
     private Long newsSubscriptionUserId(NewsSubscription newsSubscription) {

@@ -5,7 +5,7 @@ import com.example.JobProject.entity.CashAccount;
 import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
 
-@Mapper
+@Mapper(componentModel = "spring")
 public interface CashAccountMapper {
     @Mapping(source ="user.id", target = "userId")
     CashAccountDto toCashAccountDto(CashAccount cashAccount);

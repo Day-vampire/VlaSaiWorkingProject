@@ -14,6 +14,7 @@ import java.util.List;
 @Service
 @RequiredArgsConstructor
 public class AccountReportServiceImpl implements AccountReportService {
+
     private final AccountReportRepository accountReportRepository;
     private final AccountReportMapper accountReportMapper;
 
