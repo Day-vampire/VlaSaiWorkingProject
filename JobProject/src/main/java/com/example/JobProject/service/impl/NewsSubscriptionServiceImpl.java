@@ -3,6 +3,7 @@ package com.example.JobProject.service.impl;
 import com.example.JobProject.dto.NewsSubscriptionDto;
 import com.example.JobProject.dto.UserDto;
 import com.example.JobProject.entity.NewsSubscription;
+import com.example.JobProject.entity.User;
 import com.example.JobProject.mapper.NewsSubscriptionMapper;
 import com.example.JobProject.repository.NewsSubscriptionRepository;
 import com.example.JobProject.service.NewsSubscriptionService;
@@ -43,5 +44,11 @@ public class NewsSubscriptionServiceImpl implements NewsSubscriptionService {
                 .stream()
                 .map(newsSubscriptionMapper::toNewsSubscriptionDto)
                 .toList();
+    }
+    public NewsSubscription save(NewsSubscriptionDto newsSubscriptionDto) {
+        return newsSubscriptionRepository.save(newsSubscriptionMapper.toNewsSubscription(newsSubscriptionDto));
+    }
+    public void delete(Long newsSubscriptionId) {
+        newsSubscriptionRepository.deleteById(newsSubscriptionId);
     }
 }
