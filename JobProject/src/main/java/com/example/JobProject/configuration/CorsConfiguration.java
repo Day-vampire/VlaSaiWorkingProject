@@ -1,4 +1,4 @@
-package by.kirilldikun.onlinestoreapi.configuration;
+package com.example.JobProject.configuration;
 
 import org.springframework.context.annotation.Configuration;
 import org.springframework.web.servlet.config.annotation.CorsRegistry;
@@ -13,6 +13,6 @@ public class CorsConfiguration implements WebMvcConfigurer {
                 .allowedOrigins("*")
                 .allowedMethods("*")
                 .allowedHeaders("*")
-                .allowCredentials(true);
+                .allowCredentials(false);
     }
 }
