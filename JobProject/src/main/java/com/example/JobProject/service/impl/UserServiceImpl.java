@@ -1,5 +1,6 @@
 package com.example.JobProject.service.impl;
 
+import com.example.JobProject.dto.RoleDto;
 import com.example.JobProject.dto.UserDto;
 import com.example.JobProject.entity.Role;
 import com.example.JobProject.entity.User;
@@ -8,6 +9,7 @@ import com.example.JobProject.repository.RoleRepository;
 import com.example.JobProject.repository.UserRepository;
 import com.example.JobProject.service.UserService;
 import lombok.RequiredArgsConstructor;
+import org.springframework.cache.annotation.Cacheable;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -69,5 +71,9 @@ public class UserServiceImpl implements UserService {
                 .role(roleRepository.findById(userDto.getRoleId()).orElse(null))
                 .build();
         return userRepository.save(user);
+    }
+    @Cacheable(value = "users")
+    public List<UserDto> findAll() {
+        return userRepository.findAll().stream().map(userMapper::toUserDto).toList();
     }
 }

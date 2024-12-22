@@ -1,5 +1,6 @@
 package com.example.JobProject.service;
 
+import com.example.JobProject.dto.RoleDto;
 import com.example.JobProject.dto.UserDto;
 import com.example.JobProject.entity.Role;
 import com.example.JobProject.entity.User;
@@ -14,4 +15,5 @@ public interface UserService {
     List<UserDto> findByRole(Role role);
     void deleteById(Long id);
     User save(UserDto userDto);
+    List<UserDto> findAll();
 }

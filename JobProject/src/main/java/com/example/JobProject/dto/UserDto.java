@@ -7,7 +7,9 @@ import lombok.Data;
 import lombok.Getter;
 import lombok.Setter;
 import org.hibernate.validator.constraints.NotBlank;
+import org.springframework.data.redis.core.RedisHash;
 
+@RedisHash("users")
 @Data
 @Getter
 @Setter
