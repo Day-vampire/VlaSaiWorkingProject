@@ -8,5 +8,8 @@ import java.util.List;
 public interface NewsSubscriptionService {
     List<NewsSubscriptionDto> findByNewsSourceId(Long newsSourceId);
     List<NewsSubscriptionDto> findByUserId(Long userId);
-    List<NewsSubscriptionDto> findByNewsSourceIdAndUserId(Long newsSourceId, Long userId);
+    NewsSubscriptionDto findByNewsSourceIdAndUserId(Long newsSourceId, Long userId);
+    List<NewsSubscriptionDto> findAll();
+    NewsSubscriptionDto save(NewsSubscriptionDto newsSubscriptionDto);
+    void delete(Long id);
 }

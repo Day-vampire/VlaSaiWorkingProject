@@ -9,4 +9,6 @@ public interface RoleService {
     RoleDto findByName(String name);
     RoleDto findById(long id);
     List<RoleDto> findAll();
+    void delete(Long id);
+    RoleDto save(RoleDto roleDto);
 }

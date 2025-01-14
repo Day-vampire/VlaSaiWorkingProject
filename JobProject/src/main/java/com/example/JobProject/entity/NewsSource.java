@@ -1,8 +1,8 @@
 package com.example.JobProject.entity;
 
 import jakarta.persistence.*;
-import lombok.Getter;
-import lombok.Setter;
+import lombok.*;
+import lombok.experimental.Accessors;
 
 import java.util.List;
 
@@ -10,6 +10,10 @@ import java.util.List;
 @Table(name="news_sources")
 @Getter
 @Setter
+@AllArgsConstructor
+@NoArgsConstructor
+@Builder
+@Accessors(chain = true)
 public class NewsSource {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

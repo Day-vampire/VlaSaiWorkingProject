@@ -7,6 +7,7 @@ import com.example.JobProject.dto.RegistrationRequest;
 import com.example.JobProject.entity.Role;
 import com.example.JobProject.entity.User;
 import com.example.JobProject.exception.AlreadyExistsException;
+import com.example.JobProject.exception.NotFoundException;
 import com.example.JobProject.repository.RoleRepository;
 import com.example.JobProject.repository.UserRepository;
 import com.example.JobProject.service.AuthenticationService;
@@ -49,7 +50,9 @@ public class AuthenticationServiceImpl implements AuthenticationService {
                 .setLogin(login)
                 .setPassword(passwordEncoder.encode(registrationRequest.password()))
                 .setStatus(true)
-                .setRole(roleRepository.findByName("ROLE_USER"));
+                .setRole(roleRepository
+                        .findByName("ROLE_USER")
+                        .orElseThrow(()->new NotFoundException("Role not found")));
         userRepository.save(user);
         String token = jwtService.generateToken(new UserDetailsImpl(user));
         return new AuthenticationResponse(token);
